@@ -1,75 +1,60 @@
-import {ADD_TO_CART} from '../../app/constants';
-import vegs from '../../assets/images/vegs.png';
-import slideimg1 from '../../assets/images/img2.jpeg';
-import slideimg2 from '../../assets/images/img3.jpg';
-import slideimg3 from '../../assets/images/img4.jpg';
+import {
+    ADD_TO_CART_FAILED,
+    ADD_TO_CART_SUCCESS,
+    ADD_TO_CART_PENDING,
+    USER_NOT_SIGNED_IN,
+    LOGOUT_USER_SUCCESS,
+    REMOVE_FROM_CART_SUCCESS,
+    LOAD_CART,
+    ADD_TO_GUEST_CART,
+    REMOVE_FROM_GUEST_CART
+    } from '../../app/ActionConstants';
 
 
 const initialState={
-    source : [
-        {
-            imageurl: vegs,
-            name: 'vegs',
-            price: '500',
-            id : 1,
-            inCart : false
-
-           
-          }, {
-            imageurl: vegs,
-            name: 'maggie',
-            price: '800',
-            id : 2,
-            inCart : false
-           
-          } , {
-            imageurl: vegs,
-            name: 'maggie',
-            price: '800',
-            id : 3,
-            inCart : false
-           
-          } , {
-            imageurl: vegs,
-            name: 'maggie',
-            price: '800',
-            id : 4,
-            inCart : false
-           
-          } ,
-         {
-            imageurl: vegs,
-            name: 'maggie',
-            price: '800',
-            id : 5,
-            inCart : false
-           
-          } 
-    ],
-    slider:[{
-      imageurl : slideimg1
-    },
-    {
-      imageurl : slideimg2
-    },
-    {
-      imageurl : slideimg3
-    }]
+   cart:new Set(),
+    item:[]
+    
 }
-export const AddItemsToCart = (state=initialState,action={})=>{
+export const addItemsToCart = (state=initialState,action={})=>{
+    console.log(state.item);
     switch(action.type){
-        case  ADD_TO_CART:
-            const index = state.source.findIndex(function(element){
-                return (element.id == action.payload)
-            }) 
-            let Nstate=[...state.source];
-             Nstate[index]={
-                ...state.source[index],
-                inCart:true
+        case  ADD_TO_CART_SUCCESS:
+           { 
+             let Ncart =new Set([...state.cart]);
+             Ncart.add(action.payload);
+             return {...state,cart:Ncart} ;
+        }
+        case REMOVE_FROM_CART_SUCCESS:
+           { 
+             let Ncart =new Set([...state.cart]);
+             Ncart.delete(action.payload);
+             return {...state,cart:Ncart} ;
             }
-
-            // console.log(Nstate);
-            return {...state,source :Nstate };
+        case LOGOUT_USER_SUCCESS:
+            return {...state,cart:initialState.cart,item:[]};
+        case ADD_TO_GUEST_CART:
+            {
+                let Ncart =new Set([...state.cart]);
+                Ncart.add(action.payload.itemId);
+                let Nitem=[...state.item];
+                Nitem.push(action.payload.item);
+                return{...state,cart:Ncart,item:Nitem}
+            }
+        case REMOVE_FROM_GUEST_CART:
+            {
+                let Ncart =new Set([...state.cart]);
+                Ncart.delete(action.payload);
+                let Nitem=[...state.item];
+                Nitem.forEach((element,index)=>{
+                    if(element.id===action.payload){
+                        Nitem.splice(index,1)
+                    }
+                })
+                return{...state,cart:Ncart,item:Nitem}
+            }    
+        case LOAD_CART:
+            return {...state,cart:action.payload,item:action.item}  ;  
         default : 
         return state;
     }

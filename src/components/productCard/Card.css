@@ -14,12 +14,15 @@ overflow: hidden;
 
 .card-img{
 	max-width: 300px;
-	align-items :center;
+	
 	width: 190px;
     padding:10px 0px 10px 0px;
 	height:200px;
 	transition: 1s;
 
+}
+.card{
+	align-items :center;
 }
 .bd{
 	background-color: rgba(82, 242, 101,.3);

@@ -9,7 +9,8 @@
 /src/assets
 # testing
 /coverage
-
+#firebase configuration file
+firebaseConfig.js
 # production
 /build
 

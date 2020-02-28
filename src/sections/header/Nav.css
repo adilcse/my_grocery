@@ -1,5 +1,5 @@
-a :hover{
-    text-decoration: none;
+.collapse ul .nav-item .active{
+	background-color:#f5c84c;
 }
 nav{
 	margin-bottom: auto;
@@ -47,13 +47,14 @@ nav{
 
   .nav-depart .depart-btn .depart-hover {
 	position: absolute;
-	width: 100%;
+	width: 80%;
 	background: #fff;
 	left: 0;
 	top: 62px;
 	opacity: 0;
 	visibility: hidden;
-	padding-bottom: 29px;
+	padding-left: 0px;
+	padding-bottom: 1.2rem;
 	-webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
 	box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
 	-webkit-transition: all 0.3s;
@@ -65,22 +66,21 @@ nav{
 	list-style: none;
 }
 
-  .nav-depart .depart-btn .depart-hover li.active a {
-	color:yellow;
+  .nav-depart .depart-btn .depart-hover .active{
+	background-color: white;
+	color:#d8a61b;
 }
-.navbar .collapse .navbar-nav li a:hover  {
-	color: black;
-	background-color: #f5c84c;
 
-}
+
 .navbar .collapse .navbar-nav li  {
 	margin :0px 10px;
+	font-size: medium;
 }
   .nav-depart .depart-btn .depart-hover li a {
 	display: block;
 	font-size: 16px;
 	color: #000000;
-	padding-left: 40px;
+	
 	padding-top: 16px;
 	padding-right: 30px;
 	-webkit-transition: all 0.3s;
@@ -93,9 +93,7 @@ nav{
 	color: #e7ab3c;
 }
 
- .nav-item :hover{
-	background-color: #e7ab3c;
- }
+ 
 #navbarSupportedContent{
 	 
 	 transition: width 2s, height 4s;
@@ -103,8 +101,13 @@ nav{
 
 
 .row{
-    margin-left: 0px !important;
+    margin-left: 0px ;
 }   
+.ui .search .results{
+	overflow-y: scroll;
+	max-height: 30rem;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {
       .nav-menu li a {
 		padding: 16px 45px 15px;

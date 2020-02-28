@@ -1,1 +1,20 @@
-export const ADD_TO_CART = 'ADD_TO_CART';
+export const USER_TYPE_LOCAL='1';
+export const USER_TYPE_MARCHANT='2';
+export const USER_TYPE_ADMIN='3';
+//USERD IN CHECKOUT PAGE FOR CURRENT TAB
+export const LOGIN='LOGIN';
+export const ADDRESS='ADDRESS';
+export const PAYMENT='PAYMENT';
+//USED FOR USER ADDRESS IN INPUT TAB
+export const INPUT_NAME='INPUT_NAME';
+export const INPUT_NUMBER='INPUT_NUMBER';
+export const INPUT_PIN='INPUT_PIN';
+export const INPUT_LOCALITY='INPUT_LOCALITY';
+export const INPUT_ADDRESS='INPUT_ADDRESS';
+export const INPUT_CITY='INPUT_CITY';
+export const INPUT_STATE='INPUT_STATE';
+export const INPUT_LANDMARK='INPUT_LANDMARK';
+export const INPUT_ALTERNATE='INPUT_ALTERNATE';
+
+
+
