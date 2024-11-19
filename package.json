@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "faker": "^4.1.0",
-    "firebase": "^7.8.2",
+    "firebase": "^10.9.0",
     "lodash": "^4.17.15",
     "mdbreact": "^4.25.2",
     "pure-react-carousel": "^1.25.2",
